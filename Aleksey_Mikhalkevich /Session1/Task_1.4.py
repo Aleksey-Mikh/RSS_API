@@ -17,7 +17,6 @@ def get_sorted_dict(unsorted_dict):
     :return sorted_tuples converting to the dict.
     """
     sorted_tuples = sorted(unsorted_dict.items(), key=lambda x: str(x[0]))
-    print(sorted_tuples)
     return dict(sorted_tuples)
 
 

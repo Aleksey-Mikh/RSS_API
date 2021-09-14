@@ -37,7 +37,7 @@ def drawing_multiplication_table(line, column):
 
 def check_data(line, column):
     if line[0] > line[1] or column[0] > column[1]:
-        print("Please input correct data: first value must be more than second and third must be more than fourth!")
+        print("Please input correct data: second value must be more than first and fourth must be more than third!")
         return False
     return True
 
@@ -45,7 +45,7 @@ def check_data(line, column):
 def get_data_for_table(list_numbers):
     line, column, temp_numbers = [], [], []
     for number in list_numbers:
-        temp_numbers.append(int(number[-1]))
+        temp_numbers.append(int(number.split(" = ")[1]))
 
     line, column = temp_numbers[:2], temp_numbers[2:]
 

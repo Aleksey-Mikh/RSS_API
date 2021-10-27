@@ -18,6 +18,7 @@ class GetNewsSerializer(serializers.Serializer):
 
 
 class NewsSerializer(serializers.ModelSerializer):
+    channel_title = serializers.CharField(source="channel_title.channel_title")
 
     class Meta:
         model = News
@@ -252,14 +253,14 @@ def serialization_item(item):
 
     item_dict = {
         "title": title,
-        "date": pub_date,
+        "pub_date": pub_date,
         "link": link,
         "author": author,
         "category": list_categories,
         "description": description,
         "more_description": content_encoded,
         "comments": comments,
-        "media_object": enclosure,
+        "media_objects": enclosure,
         "extra_links": guid,
         "source_feed": list_source,
     }

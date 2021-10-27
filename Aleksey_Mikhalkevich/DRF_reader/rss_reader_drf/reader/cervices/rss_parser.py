@@ -1,6 +1,7 @@
 import requests
 
 from ..serializers import serialization_data
+from .save_and_load_data import interface_from_save
 
 HEADERS = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -96,6 +97,7 @@ class RSSParser:
         if self.serializable_data is None:
             return None
 
+        interface_from_save(self.serializable_data)
         # storage_control(
         #     data=self.serializable_data, source=self.source,
         #     verbose=self.verbose, to_html=self.to_html,

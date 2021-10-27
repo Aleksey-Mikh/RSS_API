@@ -6,16 +6,16 @@ class News(models.Model):
         "Feed", verbose_name="Channel title", on_delete=models.PROTECT, related_name="news"
     )
     title = models.CharField(max_length=200, verbose_name="Title")
-    pub_date = models.TimeField(verbose_name="Publication date")
+    pub_date = models.DateField(verbose_name="Publication date")
     link = models.URLField(max_length=200, verbose_name="Link")
-    author = models.CharField(max_length=200, verbose_name="Author", blank=True)
-    category = models.CharField(max_length=255, verbose_name="Category", blank=True)
-    description = models.CharField(max_length=255, verbose_name="Description", blank=True)
-    more_description = models.TextField(verbose_name="More description", blank=True)
-    comments = models.CharField(max_length=255, verbose_name="Comments", blank=True)
-    media_objects = models.TextField(verbose_name="Media Object", blank=True)
-    extra_links = models.TextField(verbose_name="Extra_links", blank=True)
-    source_feed = models.TextField(verbose_name="Source", blank=True)
+    author = models.CharField(max_length=200, verbose_name="Author", blank=True, null=True)
+    category = models.CharField(max_length=255, verbose_name="Category", blank=True, null=True)
+    description = models.CharField(max_length=255, verbose_name="Description", blank=True, null=True)
+    more_description = models.TextField(verbose_name="More description", blank=True, null=True)
+    comments = models.CharField(max_length=255, verbose_name="Comments", blank=True, null=True)
+    media_objects = models.TextField(verbose_name="Media Object", blank=True, null=True)
+    extra_links = models.TextField(verbose_name="Extra_links", blank=True, null=True)
+    source_feed = models.TextField(verbose_name="Source", blank=True, null=True)
 
     def __str__(self):
         return f"{self.title}, {self.pub_date}"

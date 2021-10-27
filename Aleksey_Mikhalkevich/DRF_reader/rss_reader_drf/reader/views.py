@@ -3,9 +3,9 @@ from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import GetNewsSerializer, FeedSerializer
+from .serializers import GetNewsSerializer, FeedSerializer, NewsSerializer
 from .cervices.rss_parser import rss_parser_interface
-from .models import Feed
+from .models import Feed, News
 
 
 class GetNewsView(APIView):
@@ -42,4 +42,14 @@ class FeedListView(generics.ListCreateAPIView):
 class FeedDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Feed.objects.all()
     serializer_class = FeedSerializer
+
+
+class NewsListView(generics.ListCreateAPIView):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+
+
+class NewsDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
 

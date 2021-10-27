@@ -142,13 +142,26 @@ def start_parsing(reader):
         result = reader.save_data_in_db()
         if isinstance(result, tuple):
             return result[1]
-
-        return reader.serializable_data
+        print(reader.json)
+        if reader.json:
+            result = reader.serializable_data
+        else:
+            result = {
+                "message": "You see this message because "
+                           "you enter false in JSON value."
+            }
+        return result
     else:
         result = reader.load_data_from_db()
 
         if isinstance(result, tuple):
             return result[1]
+
+        if not reader.json:
+            return {
+                "message": "You see this message because "
+                           "you enter false in JSON value."
+            }
 
         serializer = NewsSerializer(result, many=True)
         return serializer.data

@@ -1,6 +1,9 @@
 import datetime
+from pathlib import Path
 
 from ..models import News, Feed
+from .conversion_to_pdf import convertor_to_pdf
+from .conversion_to_html import convert_to_html
 
 
 LIST_OF_DATE_FORMATS = [
@@ -50,6 +53,15 @@ def interface_from_save(data, to_pdf, to_html, error_message):
                 f" date format. Storage data has failed."
             )
             return "errors", error_message
+
+    if to_pdf:
+        path = Path(Path(__file__).parent.parent, "media")
+        convertor_to_pdf(data, path, error_message)
+
+    if to_html:
+        path = Path(Path(__file__).parent.parent, "media")
+        convert_to_html(data, path, error_message)
+
 
 
 def interface_from_load(date, source, limit, to_pdf, to_html, error_message):

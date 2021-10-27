@@ -29,9 +29,10 @@ class GetNewsView(APIView):
         serializer = GetNewsSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             result = rss_parser_interface(serializer.data)
-            if result is not None:
+            print(result)
+            if result is None:
                 return Response(result, status=status.HTTP_204_NO_CONTENT)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(result, status=status.HTTP_201_CREATED)
 
 
 class FeedListView(generics.ListCreateAPIView):

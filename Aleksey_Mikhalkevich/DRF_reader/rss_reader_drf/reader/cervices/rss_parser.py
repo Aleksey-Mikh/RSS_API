@@ -1,7 +1,7 @@
 import requests
 
-from ..serializers import serialization_data
-from .save_and_load_data import interface_from_save
+from ..serializers import serialization_data, NewsSerializer
+from .save_and_load_data import interface_from_save, interface_from_load
 
 HEADERS = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -69,40 +69,32 @@ class RSSParser:
         """
         Check date and source value and allowed standard start if
         source was enter and date is None, if source is None
-        print error, if date was enter call storage_control.
+        and date is None update error_message,
+        if date was return False, it allowed loading data.
 
         :return: True if source is enter and date is None
         """
-        print(f"{self.date=}, {self.source=}")
         if not self.date and self.source is not None:
-            print("-" * 20, "if self.date and self.source is not None", "-" * 20)
             return True
         elif self.date:
-            print("-" * 20, "elif self.date is not None:", "-" * 20)
-            # storage_control(
-            #     date=self.date, source=self.source, verbose=self.verbose,
-            #     json=self.json, limit=self.limit, to_html=self.to_html,
-            #     to_pdf=self.to_pdf, colorize=self.colorize
-            # )
+            return False
         elif self.source is None:
             self.error_message.append(f"A source wasn't enter. Source is {self.source}")
 
+    def load_data_from_db(self):
+        return interface_from_load(
+            self.date, self.source, self.limit,
+            self.to_pdf, self.to_html, self.error_message
+        )
+
     def save_data_in_db(self):
         """
-        Check the self.json value and
-        if self.json is True - outputs json to the console
-        if self.json is False - outputs news
-        in a standard format to the console
+        SSaving received the news in DB
         """
         if self.serializable_data is None:
             return None
 
-        interface_from_save(self.serializable_data)
-        # storage_control(
-        #     data=self.serializable_data, source=self.source,
-        #     verbose=self.verbose, to_html=self.to_html,
-        #     to_pdf=self.to_pdf, colorize=self.colorize
-        # )
+        interface_from_save(self.serializable_data, self.to_pdf, self.to_html, self.error_message)
 
     def _get_html(self):
         """
@@ -146,13 +138,24 @@ def start_parsing(reader):
         result = reader.parsing()
         if isinstance(result, tuple):
             return result[1]
-        reader.save_data_in_db()
+
+        result = reader.save_data_in_db()
+        if isinstance(result, tuple):
+            return result[1]
 
         return reader.serializable_data
+    else:
+        result = reader.load_data_from_db()
+
+        if isinstance(result, tuple):
+            return result[1]
+
+        serializer = NewsSerializer(result, many=True)
+        return serializer.data
 
 
 def rss_parser_interface(data):
-    """Init reader"""
+    """Interface to parse news"""
     reader = RSSParser(
         source=data["source"],
         limit=data["limit"],

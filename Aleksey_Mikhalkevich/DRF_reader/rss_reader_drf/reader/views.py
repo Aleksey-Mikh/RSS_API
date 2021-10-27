@@ -1,13 +1,14 @@
 from rest_framework.generics import get_object_or_404
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import GetNewsSerializer
+from .serializers import GetNewsSerializer, FeedSerializer
 from .cervices.rss_parser import rss_parser_interface
+from .models import Feed
 
 
-class GetNews(APIView):
+class GetNewsView(APIView):
     def get(self, request):
         """
         When the user make get request he received
@@ -33,4 +34,12 @@ class GetNews(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+class FeedListView(generics.ListCreateAPIView):
+    queryset = Feed.objects.all()
+    serializer_class = FeedSerializer
+
+
+class FeedDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Feed.objects.all()
+    serializer_class = FeedSerializer
 

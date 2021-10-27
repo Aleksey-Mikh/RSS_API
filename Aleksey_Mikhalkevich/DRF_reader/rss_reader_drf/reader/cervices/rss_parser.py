@@ -1,8 +1,6 @@
-import sys
-
 import requests
 
-from rss_reader_drf.reader.serializers import serialization_data
+from ..serializers import serialization_data
 
 HEADERS = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -45,11 +43,12 @@ class RSSParser:
             )
 
             if isinstance(serializable_data, tuple):
-                self.error_message.extend(serializable_data[1])
                 self.error_message.append("Data wasn't received")
-                return None
+                return "errors", self.error_message
 
             self.serializable_data = serializable_data
+        else:
+            return "errors", self.error_message
 
     def _isvalid(self, response):
         """Check if response is valid"""
@@ -73,9 +72,11 @@ class RSSParser:
 
         :return: True if source is enter and date is None
         """
-        if self.date is None and self.source is not None:
+        print(f"{self.date=}, {self.source=}")
+        if not self.date and self.source is not None:
+            print("-" * 20, "if self.date and self.source is not None", "-" * 20)
             return True
-        elif self.date is not None:
+        elif self.date:
             print("-" * 20, "elif self.date is not None:", "-" * 20)
             # storage_control(
             #     date=self.date, source=self.source, verbose=self.verbose,
@@ -140,18 +141,22 @@ class RSSParser:
 def start_parsing(reader):
     """Load parsing and print data"""
     if reader.check_date_and_source():
-        reader.parsing()
+        result = reader.parsing()
+        if isinstance(result, tuple):
+            return result[1]
         reader.save_data_in_db()
 
+        return reader.serializable_data
 
-def rss_parser_interface(**kwargs):
+
+def rss_parser_interface(data):
     """Init reader"""
     reader = RSSParser(
-        source=kwargs["source"],
-        limit=kwargs["limit"],
-        json=kwargs["json"],
-        date=kwargs["pub_date"],
-        to_html=kwargs["to_html"],
-        to_pdf=kwargs["to_pdf"],
+        source=data["source"],
+        limit=data["limit"],
+        json=data["json"],
+        pub_date=data["pub_date"],
+        to_html=data["to_html"],
+        to_pdf=data["to_pdf"],
     )
-    start_parsing(reader)
+    return start_parsing(reader)

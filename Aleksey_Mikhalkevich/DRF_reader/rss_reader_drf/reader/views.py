@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .serializers import GetNewsSerializer
+from .cervices.rss_parser import rss_parser_interface
 
 
 class GetNews(APIView):
@@ -26,7 +27,9 @@ class GetNews(APIView):
     def post(self, request):
         serializer = GetNewsSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            print(serializer.data)
+            result = rss_parser_interface(serializer.data)
+            if result is not None:
+                return Response(result, status=status.HTTP_204_NO_CONTENT)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 

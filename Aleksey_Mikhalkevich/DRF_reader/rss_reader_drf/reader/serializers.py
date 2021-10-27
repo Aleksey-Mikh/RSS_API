@@ -11,7 +11,7 @@ class GetNewsSerializer(serializers.Serializer):
     limit = serializers.IntegerField(min_value=0, allow_null=True)
     json = serializers.BooleanField(default=True)
     to_pdf = serializers.BooleanField(default=False)
-    to_json = serializers.BooleanField(default=False)
+    to_html = serializers.BooleanField(default=False)
 
     def create(self, validated_data):
         return validated_data

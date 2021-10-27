@@ -14,7 +14,7 @@ class GetNews(APIView):
         `how to make a request for parse news`
         """
         data = {
-            "url": "Url for parse. May be null",
+            "source": "Url for parse. May be null",
             "pub_date": "Publication date in format YearMonthDay: 20211023. May be blank",
             "limit": "Number of news. May be null",
             "json": "Get news in JSON format. Default value true",

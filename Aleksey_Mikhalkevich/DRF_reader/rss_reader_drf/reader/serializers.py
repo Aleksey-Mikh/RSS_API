@@ -4,9 +4,9 @@ from .models import News, Feed, SourceForParse
 
 
 class GetNewsSerializer(serializers.Serializer):
-    url = serializers.URLField(max_length=200)
-    pub_date = serializers.CharField(max_length=200)
-    limit = serializers.IntegerField(min_value=0)
+    url = serializers.URLField(max_length=200, allow_null=True)
+    pub_date = serializers.CharField(max_length=200, allow_blank=True)
+    limit = serializers.IntegerField(min_value=0, allow_null=True)
     json = serializers.BooleanField(default=True)
     to_pdf = serializers.BooleanField(default=False)
     to_json = serializers.BooleanField(default=False)

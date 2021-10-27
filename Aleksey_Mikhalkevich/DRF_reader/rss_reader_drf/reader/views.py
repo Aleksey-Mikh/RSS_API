@@ -14,19 +14,19 @@ class GetNews(APIView):
         `how to make a request for parse news`
         """
         data = {
-            "url": "url for parse",
-            "limit": "number of news",
-            "pub_date": "data",
-            "json": "get news in json format",
-            "to-pdf": "convert to pdf",
-            "to-html": "convert to html"
+            "url": "Url for parse. May be null",
+            "pub_date": "Publication date in format YearMonthDay: 20211023. May be blank",
+            "limit": "Number of news. May be null",
+            "json": "Get news in JSON format. Default value true",
+            "to-pdf": "Convert received news to PDF. Default value false",
+            "to-html": "Convert received news to HTML. Default value false"
         }
         return Response(data, status=status.HTTP_200_OK)
 
     def post(self, request):
         serializer = GetNewsSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            print("---"*60, "parsing")
+            print(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 

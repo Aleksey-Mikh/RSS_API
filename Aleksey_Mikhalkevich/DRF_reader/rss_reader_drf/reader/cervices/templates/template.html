@@ -34,9 +34,9 @@
         </div>
         {% endif %}
 
-        {% if news.date %}
+        {% if news.pub_date %}
         <div>
-            <p>Date: {{ news.date }}</p>
+            <p>Date: {{ news.pub_date }}</p>
         </div>
         {% endif %}
 
@@ -79,17 +79,17 @@
         </div>
         {%- endif -%}
 
-        {% if news.media_object %}
+        {% if news.media_objects %}
         <div>
-            {% if news.media_object is is_list %}
+            {% if news.media_objects is is_list %}
             <p>Media object:</p>
             <ul>
-                {% for media_object in news.media_object %}
+                {% for media_object in news.media_objects %}
                 <li><a href="{{ media_object }}">{{ media_object }}</a></li>
                 {% endfor %}
             </ul>
             {% else %}
-            <p>Media object: <a href="{{ news.media_object }}">{{ news.media_object }}</a></p>
+            <p>Media object: <a href="{{ news.media_object }}">{{ news.media_objects }}</a></p>
             {% endif %}
         </div>
         {% endif %}

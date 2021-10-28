@@ -20,8 +20,8 @@ class PDF(FPDF):
         if news["title"]:
             self.multi_cell(0, 5, f"Title: {news['title']}")
             self.ln()
-        if news["date"]:
-            self.multi_cell(0, 5, f"date of publication: {news['date']}")
+        if news["pub_date"]:
+            self.multi_cell(0, 5, f"date of publication: {news['pub_date']}")
             self.ln()
         if news["link"]:
             self.multi_cell(0, 5, f"Link: {news['link']}")
@@ -51,13 +51,13 @@ class PDF(FPDF):
             self.multi_cell(0, 5, f"Comments: {news['comments']}")
             self.ln()
 
-        if news["media_object"]:
-            if self.is_list(news["media_object"]):
-                for media in news["media_object"]:
+        if news["media_objects"]:
+            if self.is_list(news["media_objects"]):
+                for media in news["media_objects"]:
                     self.cell(0, 5, "Media objects: ", ln=1)
                     self.multi_cell(0, 5, f"{' ' * 5}{media}")
             else:
-                self.multi_cell(0, 5, f"Media object: {news['media_object']}")
+                self.multi_cell(0, 5, f"Media object: {news['media_objects']}")
             self.ln()
 
         if news["extra_links"]:

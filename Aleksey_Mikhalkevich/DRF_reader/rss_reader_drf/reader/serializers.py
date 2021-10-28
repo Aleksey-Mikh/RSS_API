@@ -6,6 +6,7 @@ from .models import News, Feed, SourceForParse
 
 
 class GetNewsSerializer(serializers.Serializer):
+    """Request for parsing"""
     source = serializers.URLField(max_length=200, allow_null=True)
     pub_date = serializers.CharField(max_length=200, allow_blank=True)
     limit = serializers.IntegerField(min_value=0, allow_null=True)
@@ -14,27 +15,34 @@ class GetNewsSerializer(serializers.Serializer):
     to_html = serializers.BooleanField(default=False)
 
     def create(self, validated_data):
+        """:return serializable data"""
         return validated_data
 
 
 class NewsSerializer(serializers.ModelSerializer):
+    """Used for NewsListView and NewsDetailView"""
     channel_title = serializers.CharField(source="channel_title.channel_title")
 
     class Meta:
+        """Metadata options"""
         model = News
         fields = "__all__"
 
 
 class FeedSerializer(serializers.ModelSerializer):
+    """Used for FeedListView and FeedDetailView"""
 
     class Meta:
+        """Metadata options"""
         model = Feed
         fields = "__all__"
 
 
 class SourceForParseSerializer(serializers.ModelSerializer):
+    """Used for SourceForParseListView and SourceForParseDetailView"""
 
     class Meta:
+        """Metadata options"""
         model = SourceForParse
         fields = "__all__"
 

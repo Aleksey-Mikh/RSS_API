@@ -163,8 +163,7 @@ def start_parsing(reader):
                            "you enter false in JSON value."
             }
 
-        serializer = NewsSerializer(result, many=True)
-        return serializer.data
+        return result
 
 
 def rss_parser_interface(data):

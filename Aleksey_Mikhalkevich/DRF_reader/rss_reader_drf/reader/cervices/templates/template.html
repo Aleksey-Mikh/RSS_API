@@ -21,7 +21,7 @@
 {% for feed in feeds %}
 <div>
     {% for news in feed %}
-    {% if news.channel_title %}
+    {% if news.channel_title and news.source %}
     <div>
         <p class="channel-data">{{ news.channel_title }}</p>
         <p class="channel-data">Source: <a href="{{ news.source }}">{{ news.source }}</a></p>

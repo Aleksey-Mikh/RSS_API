@@ -142,7 +142,7 @@ def start_parsing(reader):
         result = reader.save_data_in_db()
         if isinstance(result, tuple):
             return result[1]
-        print(reader.json)
+
         if reader.json:
             result = reader.serializable_data
         else:

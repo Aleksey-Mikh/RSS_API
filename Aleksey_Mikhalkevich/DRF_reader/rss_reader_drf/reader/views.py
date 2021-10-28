@@ -1,11 +1,6 @@
-import base64
-import mimetypes
 from pathlib import Path
 
-from django.http.response import HttpResponse, HttpResponseRedirect
-from django.shortcuts import redirect
-from rest_framework.reverse import reverse
-from rest_framework.generics import get_object_or_404
+from django.http.response import HttpResponse
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -30,15 +25,6 @@ class GetNewsView(APIView):
             "to-pdf": "Convert received news to PDF. Default value false",
             "to-html": "Convert received news to HTML. Default value false"
         }
-        path = Path(Path(__file__).parent, "media", "feed.pdf")
-        # with open(path, "rb") as file:
-        #     mime_type, _ = mimetypes.guess_type(path)
-        #     response = HttpResponse(file, content_type='application/pdf')
-        #     filename = "feed.pdf"
-        #     response['Content-Disposition'] = 'attachment; filename="{}"'.format(
-        #         filename)
-        #     print("LOL")
-        #     return response
         return Response(data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -49,18 +35,20 @@ class GetNewsView(APIView):
             result = rss_parser_interface(serializer.data)
 
             if serializer.data["to_pdf"]:
-                print("lol")
                 path = Path(Path(__file__).parent, "media", "feed.pdf")
                 with open(path, "rb") as file:
-                    mime_type, _ = mimetypes.guess_type(path)
                     response = HttpResponse(file, content_type='application/pdf', status=status.HTTP_201_CREATED)
                     filename = "feed.pdf"
-                    response['Content-Disposition'] = 'attachment; filename="{}"'.format(
-                        filename)
-                    response["Content-Type"] = 'application/pdf'
-                    print("LOL")
-                    print(response)
-                    return redirect("news:download_pdf")
+                    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+                    return response
+
+            if serializer.data["to_html"]:
+                path = Path(Path(__file__).parent, "media", "feed.html")
+                with open(path, "r", encoding="utf-8") as file:
+                    response = HttpResponse(file, content_type='application/html', status=status.HTTP_201_CREATED)
+                    filename = "feed.html"
+                    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+                    return response
 
             if result is None:
                 return Response(result, status=status.HTTP_204_NO_CONTENT)
@@ -70,20 +58,25 @@ class GetNewsView(APIView):
 class DownloadPdfView(APIView):
 
     def get(self, request):
-        print("lol")
         path = Path(Path(__file__).parent, "media", "feed.pdf")
         with open(path, "rb") as file:
-            mime_type, _ = mimetypes.guess_type(path)
-            response = HttpResponse(file, content_type='application/pdf')
+            response = HttpResponse(file, content_type='application/pdf', status=status.HTTP_201_CREATED)
             filename = "feed.pdf"
-            response['Content-Disposition'] = 'attachment; filename="{}"'.format(
-                filename)
+            response['Content-Disposition'] = f'attachment; filename="{filename}"'
             response["Content-Type"] = 'application/pdf'
-            print("LOL")
-            print(response)
             return response
 
 
+class DownloadHTMLView(APIView):
+
+    def get(self, request):
+        path = Path(Path(__file__).parent, "media", "feed.html")
+        with open(path, "r", encoding="utf-8") as file:
+            response = HttpResponse(file, content_type='application/html', status=status.HTTP_201_CREATED)
+            filename = "feed.html"
+            response['Content-Disposition'] = f'attachment; filename="{filename}"'
+            response["Content-Type"] = 'application/html'
+            return response
 
 
 class FeedListView(generics.ListCreateAPIView):

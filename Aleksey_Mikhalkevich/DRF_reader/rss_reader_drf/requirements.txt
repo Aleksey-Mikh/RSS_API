@@ -1,0 +1,8 @@
+Django==3.2.8
+djangorestframework==3.12.4
+requests==2.26.0
+beautifulsoup4==4.10.0
+Jinja2==3.0.2
+fpdf==1.7.2
+psycopg2-binary==2.8.5
+lxml==4.6.3

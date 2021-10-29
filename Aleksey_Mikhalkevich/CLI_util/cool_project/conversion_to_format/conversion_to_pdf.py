@@ -3,7 +3,7 @@ from pathlib import Path
 from fpdf import FPDF
 
 from CLI_util.cool_project.cervices.print_functions import info_print, error_print
-from CLI_util.cool_project.project_settings import FILE_NAME_PDF
+from project_settings import FILE_NAME_PDF
 
 
 class PDF(FPDF):

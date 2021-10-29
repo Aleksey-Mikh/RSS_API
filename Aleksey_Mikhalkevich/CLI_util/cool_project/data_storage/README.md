@@ -21,9 +21,9 @@ The news is stored in a JSON file format in the form - `%Y-%m-%d_source_name.jso
 In the source name, all symbols that are not letters or numbers are replaced to `_`.
 
 
-##storage_manager.py
+## storage_manager.py
 The module contains Managers for work with storage.
 
 
-##working_with_storage.py
+## working_with_storage.py
 The module contains an interface for working with Storage.

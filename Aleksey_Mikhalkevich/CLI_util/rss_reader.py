@@ -16,7 +16,7 @@ from CLI_util.cool_project.cervices.decorators import (
 from CLI_util.cool_project.cervices.print_functions import info_print, error_print
 from CLI_util.cool_project.serializers.serializers import serialization_data
 from CLI_util.cool_project.data_storage.working_with_storage import storage_control
-from CLI_util.cool_project.project_settings import PROGRAM_VERSION, HEADERS
+from project_settings import PROGRAM_VERSION, HEADERS
 
 
 class RSSParser:
@@ -217,7 +217,7 @@ class RSSParser:
 
 
 @decorator_delimiter("Start Program", "Stop Program")
-# @intercept_errors  # TODO del #
+@intercept_errors
 def start_parsing(reader):
     """Load parsing and print data"""
     if reader.check_date_and_source():

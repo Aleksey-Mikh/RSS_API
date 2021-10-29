@@ -69,7 +69,7 @@ and install the utility:
 Don't forget the dot at the end!
 Now you can use the utility in two ways:
 ```
->>> python .\cool_project\rss_reader.py https://people.onliner.by/feed --limit 1
+>>> python rss_reader.py https://people.onliner.by/feed --limit 1
 ```
 or
 ```
@@ -279,20 +279,24 @@ You can find more information [here](cool_project/data_storage/README.md).
 [:arrow_up:Contents](#Contents)
 
 ## Tests
-      ======================================= test session starts ========================================
+
+      >>> pytest .\tests\ --cov=rss_reader --cov=.\cool_project\
+
+      ======================================== test session starts =========================================
       platform win32 -- Python 3.9.7, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
+      rootdir: C:\Users\lehado01\PycharmProjects\EPAM_final_task\Homework\Aleksey_Mikhalkevich\CLI_util
       plugins: cov-3.0.0, mock-3.6.1
-      collected 77 items                                                                                  
+      collected 78 items                                                                                    
       
-      tests\test_data_storage\test_storage_managers.py .......................                      [ 29%]
-      tests\test_data_storage\test_working_with_storage.py ...                                      [ 33%]
-      tests\test_rss_reader\test_rss_reader.py ........                                             [ 44%]
-      tests\tests_conversion_to_format\test_conversion_to_html.py .......                           [ 53%]
-      tests\tests_conversion_to_format\test_conversion_to_pdf.py .......                            [ 62%]
-      tests\tests_serializers\test_serializers.py ............                                      [ 77%]
-      tests\tests_services\test_data_output.py .......                                              [ 87%]
-      tests\tests_services\test_decorators.py .......                                               [ 96%]
-      tests\tests_services\test_print_functions.py ...                                              [100%]
+      tests\test_data_storage\test_storage_managers.py .......................                        [ 29%]
+      tests\test_data_storage\test_working_with_storage.py ...                                        [ 33%]
+      tests\test_rss_reader\test_rss_reader.py ........                                               [ 43%]
+      tests\tests_conversion_to_format\test_conversion_to_html.py .......                             [ 52%]
+      tests\tests_conversion_to_format\test_conversion_to_pdf.py .......                              [ 61%]
+      tests\tests_serializers\test_serializers.py ............                                        [ 76%]
+      tests\tests_services\test_data_output.py ........                                               [ 87%]
+      tests\tests_services\test_decorators.py .......                                                 [ 96%]
+      tests\tests_services\test_print_functions.py ...                                                [100%]
       
       ----------- coverage: platform win32, python 3.9.7-final-0 -----------
       Name                                                      Stmts   Miss  Cover
@@ -308,16 +312,14 @@ You can find more information [here](cool_project/data_storage/README.md).
       cool_project\data_storage\__init__.py                         0      0   100%
       cool_project\data_storage\storage_managers.py               197      0   100%
       cool_project\data_storage\working_with_storage.py            53      0   100%
-      cool_project\project_settings.py                              5      0   100%
-      cool_project\rss_reader.py                                   99     11    89%
       cool_project\serializers\__init__.py                          0      0   100%
       cool_project\serializers\serializers.py                     132      3    98%
+      rss_reader.py                                               100     11    89%
       -----------------------------------------------------------------------------
-      TOTAL                                                       733     29    96%
+      TOTAL                                                       729     29    96%
       
       
-      ======================================== 77 passed in 1.84s ========================================  
-
+      ========================================= 78 passed in 2.08s =========================================
 ---
 [:arrow_up:Contents](#Contents)
 

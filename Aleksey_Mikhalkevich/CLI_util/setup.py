@@ -11,7 +11,7 @@ setup(
     version=PROGRAM_VERSION,
     author='Aleksey Mikhalkevich',
     author_email='lehado67@gmail.com',
-    description="A small example package",  # TODO make description
+    description="RSS reader for feed",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Aleksey-Mikh/Homework/tree/final_task",
@@ -29,7 +29,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "rss_reader = cool_project.rss_reader:main",
+            "rss_reader = rss_reader:main",
         ],
     }
 )

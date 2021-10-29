@@ -8,7 +8,7 @@ from CLI_util.cool_project.cervices.print_functions import error_print, info_pri
 from CLI_util.cool_project.cervices.data_output import (
     console_output_feed, console_json_output
 )
-from CLI_util.cool_project.project_settings import LIST_OF_DATE_FORMATS
+from project_settings import LIST_OF_DATE_FORMATS
 
 
 class StorageManager:

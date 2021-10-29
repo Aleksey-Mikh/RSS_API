@@ -123,32 +123,31 @@ def test_console_output_feed(capsys):
 
     assert captured.out == output
 
-# TODO FIX IT
-# @pytest.mark.parametrize("news, colorize",
-#                          [("News 5", False),
-#                           ("News 6", True)]
-#                          )
-# def test_output_feed(capsys, news, colorize):
-#     """test for output_feed function"""
-#     output_feed(DATA[1], colorize)
-#     captured = capsys.readouterr()
-#
-#     first_line_1 = calculate_terminal_size(news)
-#     last_line = calculate_terminal_size(None)
-#     output = f'{"-" * first_line_1[0]}{first_line_1[2]}' \
-#              f'{"-" * first_line_1[1]}\n' \
-#              f'Title: {DATA[1]["title"]}\n' \
-#              f'Date: {DATA[1]["date"]}\n' \
-#              f'Link: {DATA[1]["link"]}\n' \
-#              f'Author: {DATA[1]["author"]}\n' \
-#              f'Category: {DATA[1]["category"][0]}\n\n' \
-#              f'Description: {DATA[1]["description"]}\n\n' \
-#              f'Media Object: {DATA[1]["media_object"]}\n' \
-#              f'Extra Links: {DATA[1]["extra_links"]}\n' \
-#              f'{"-" * last_line[0]}{last_line[2]}' \
-#              f'{"-" * last_line[1]}\n'
-#
-#     assert captured.out == output
+
+@pytest.mark.parametrize("news, colorize",
+                         [("News 5", False)]
+                         )
+def test_output_feed(capsys, news, colorize):
+    """test for output_feed function"""
+    output_feed(DATA[1], colorize)
+    captured = capsys.readouterr()
+
+    first_line_1 = calculate_terminal_size(news)
+    last_line = calculate_terminal_size(None)
+    output = f'{"-" * first_line_1[0]}{first_line_1[2]}' \
+             f'{"-" * first_line_1[1]}\n' \
+             f'Title: {DATA[1]["title"]}\n' \
+             f'Date: {DATA[1]["date"]}\n' \
+             f'Link: {DATA[1]["link"]}\n' \
+             f'Author: {DATA[1]["author"]}\n' \
+             f'Category: {DATA[1]["category"][0]}\n\n' \
+             f'Description: {DATA[1]["description"]}\n\n' \
+             f'Media Object: {DATA[1]["media_object"]}\n' \
+             f'Extra Links: {DATA[1]["extra_links"]}\n' \
+             f'{"-" * last_line[0]}{last_line[2]}' \
+             f'{"-" * last_line[1]}\n'
+
+    assert captured.out == output
 
 
 @pytest.mark.parametrize("word, res",

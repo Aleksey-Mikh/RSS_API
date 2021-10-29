@@ -2,11 +2,11 @@ Package description
 ===
 This package contains modules which implement some services functions.
 
-##data_output.py
+## data_output.py
 The Module contains functions for output news in different format, for example: 
 JSON or simple print in console.
 
-###JSON structure:
+### JSON structure:
 
     [
         {
@@ -54,7 +54,7 @@ JSON or simple print in console.
 
 >*May contain null value if the element was not detected during news parsing.
 
-###simple print:
+### Simple print:
 
     Channel source: https://people.onliner.by/feed
     Channel title: Люди Onlíner
@@ -75,7 +75,7 @@ JSON or simple print in console.
     source_feed: list_source
     ------------------------------------------------
 
-##print_functions.py
+## print_functions.py
 The Module contains print functions for print different messages, for example:
 1. error messages print
 2. warning messages print
@@ -83,7 +83,7 @@ The Module contains print functions for print different messages, for example:
 
 >those functions are calling during parsing process 
 
-##decorators.py
+## decorators.py
 The Module contains decorators functions for different use, for example:
 + decorators which print separators for output data
 + decorators which intercept exceptions

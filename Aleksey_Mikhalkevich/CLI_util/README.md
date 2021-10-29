@@ -1,6 +1,6 @@
 Project description 
 ===
-Implement Python RSS-reader using python 3.9.
+Implemented Python RSS-reader using python 3.9.
 
 RSS reader is a command-line utility that receives RSS URL and prints results in a human-readable format.
 

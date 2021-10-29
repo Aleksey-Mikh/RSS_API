@@ -36,3 +36,22 @@ And start creating databases:
 ```
 >>> docker-compose exec drf_reader python manage.py migrate
 ```
+
+---
+
+## Usage
+
+We can use http://127.0.0.1:8000/api or http://0.0.0.0:8000/api
+
+Для получение новостей нужно отпрвить POST запрос на адрес http://127.0.0.1:8000/api/get_news/
+
+      {
+         "source": "https://people.onliner.by/feed",
+         "pub_date": "",
+         "limit": 1,
+         "json": true,
+         "to_pdf": true,
+         "to_html": false
+      }
+
+![](gif/post.gif.mp4)

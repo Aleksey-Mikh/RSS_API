@@ -1,6 +1,9 @@
 Project description 
 ===
-Description
+Implement Python RSS-reader using python 3.9.
+
+RSS reader is a command-line utility that receives RSS URL and prints results in a human-readable format.
+
 
 ---
 Quick start
@@ -37,7 +40,7 @@ Quick start
       ----------------------------------- Stop Program ----------------------------------
 ---
 
-##Contents
+## Contents
 ***
 1. [Installation](#Installation)
 2. [Usage](#Usage)
@@ -50,7 +53,7 @@ Quick start
 6. [What's in the future](#What's-in-the-future)
 
 ---
-##Installation
+## Installation
 To install, you need to make a clone of the repository:
 ```
 >>> git clone https://github.com/Aleksey-Mikh/Homework.git -b master
@@ -86,7 +89,7 @@ Windows:
 [:arrow_up:Contents](#Contents)
 
 ---
-##Usage
+## Usage
 You can see the information about the utility using the following command:
 
       >>> rss_reader --help
@@ -243,21 +246,21 @@ You can find more information [here](/cool_project/cervices/README.md).
 ---
 [:arrow_up:Contents](#Contents)
 
-##Format converter
+## Format converter
 The utility supports the conversion of news into the following formats: HTML, PDF.
 
-###Converter to PDF
+### Converter to PDF
 When you enter the `--to-pdf path` argument, the `feed.pdf` file will be saved to the got path.
 You can find more information [here](/cool_project/conversion_to_format/README.md).
 
-###Converter to HTML
+### Converter to HTML
 When you enter the `--to-html path` argument, the `html.pdf` file will be saved to the got path.
 You can find more information [here](/cool_project/conversion_to_format/README.md).
 
 ---
 [:arrow_up:Contents](#Contents)
 
-##Storage
+## Storage
 The utility uses caching of news with the ability to output them without an Internet connection.
 
 ### Format of the storage:
@@ -275,7 +278,7 @@ You can find more information [here](/cool_project/data_storage/README.md).
 ---
 [:arrow_up:Contents](#Contents)
 
-##Tests
+## Tests
       ======================================= test session starts ========================================
       platform win32 -- Python 3.9.7, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
       plugins: cov-3.0.0, mock-3.6.1
@@ -318,5 +321,5 @@ You can find more information [here](/cool_project/data_storage/README.md).
 ---
 [:arrow_up:Contents](#Contents)
 
-##What's in the future
+## What's in the future
 In the future, I'm going to upload the utility to PYPI and add more formats for conversions.

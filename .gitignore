@@ -3,4 +3,8 @@ URL.py
 .pypirc
 tmp.xml
 __pycache__/
-Aleksey_Mikhalkevich/cool_project/data_storage/storage/
+Aleksey_Mikhalkevich/CLI_util/cool_project/data_storage/storage/
+
+Aleksey_Mikhalkevich/CLI_util/cool_project/conversion_to_format/files_for_pdf/*.pkl
+Aleksey_Mikhalkevich/DRF_reader/rss_reader_drf/reader/cervices/files_for_pdf/*.pkl
+

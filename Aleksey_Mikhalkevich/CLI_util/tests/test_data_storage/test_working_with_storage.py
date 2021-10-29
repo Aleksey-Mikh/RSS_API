@@ -207,8 +207,8 @@ def test_storage_control_when_enter_date_and_source(capsys, path_to_storage):
         to_pdf=None, limit=1, json=True, colorize=False
     )
     captured = capsys.readouterr()
-    assert captured.out == "[ERROR] No news was found for this date - " \
-                           "1000-10-23\n\n"
+    assert captured.out == "[ERROR] No news was founded for this date:" \
+                           " 10001023, and this source: sour.ce\n\n"
 
     # make file for test
     storage_control(
@@ -292,7 +292,7 @@ def test_storage_control_when_enter_date_and_source(capsys, path_to_storage):
     )
     captured = capsys.readouterr()
     assert captured.out == "[ERROR] No news was founded for this date" \
-                           " and: 1000-10-23, and this " \
+                           ": 1000-10-23, and this " \
                            "source: sour.ce\n\n"
 
     Path.unlink(Path(path, "feed.html"))

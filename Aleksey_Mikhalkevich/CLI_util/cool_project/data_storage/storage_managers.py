@@ -374,10 +374,10 @@ class FindManagerWhenEnterDate(StorageManager):
                 paths = list(map(str, paths))
                 return paths
             else:
-                self._news_was_not_founded(date_in_correct_format)
+                self.news_was_not_founded(date_in_correct_format)
                 return False
         else:
-            self._news_was_not_founded(date_in_correct_format)
+            self.news_was_not_founded(date_in_correct_format)
             return False
 
     def data_output(self, data):
@@ -398,14 +398,19 @@ class FindManagerWhenEnterDate(StorageManager):
             for feed in data:
                 console_output_feed(feed, self.colorize)
 
-    @staticmethod
-    def _news_was_not_founded(date):
+    def news_was_not_founded(self, date=None):
         """
         Error output when news by date is not found.
 
         :param date: date entered by the user
         """
-        error_print(f"No news was found for this date - {date}")
+        if self.source is not None:
+            error_print(
+                f"No news was founded for this date: "
+                f"{self.date}, and this source: {self.source}"
+            )
+        else:
+            error_print(f"No news was found for this date - {date}")
 
     @staticmethod
     def get_sources_from_data(list_of_data):
@@ -452,14 +457,6 @@ class FindManagerWhenEnterDateAndSource(FindManagerWhenEnterDate):
         file_name = f'{self.date}_{source}.json'
         return file_name
 
-    def news_was_not_founded(self):
-        """
-        Error output when news by date and source is not found.
-        """
-        error_print(
-            f"No news was founded for this date and: "
-            f"{self.date}, and this source: {self.source}"
-        )
 
     def data_output(self, data):
         """

@@ -54,11 +54,11 @@ class RSSParser:
         )
         parser.add_argument(
             "source", nargs="?", default=None,
-            type=str, help="Print version info"
+            type=str, help="RSS URL"
         )
         parser.add_argument(
             "--version", action="version",
-            version=f"Version {PROGRAM_VERSION}", help="RSS URL"
+            version=f"Version {PROGRAM_VERSION}", help="Print version info"
         )
         parser.add_argument(
             "--json", action="store_true",
@@ -72,7 +72,7 @@ class RSSParser:
             "--limit", help="Limit news topics if this parameter provided"
         )
         parser.add_argument(
-            "--date", help="Take a date in %Y%m%d format. Example: 20191206"
+            "--date", help="Take a date in %%Y%%m%%d format. Example: 20191206"
         )
         parser.add_argument(
             "--to-html",

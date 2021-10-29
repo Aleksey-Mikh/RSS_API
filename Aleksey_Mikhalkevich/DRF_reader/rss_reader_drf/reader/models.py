@@ -11,7 +11,7 @@ class News(models.Model):
     link = models.URLField(max_length=200, verbose_name="Link")
     author = models.CharField(max_length=200, verbose_name="Author", blank=True, null=True)
     category = models.CharField(max_length=255, verbose_name="Category", blank=True, null=True)
-    description = models.CharField(max_length=255, verbose_name="Description", blank=True, null=True)
+    description = models.TextField(verbose_name="Description", blank=True, null=True)
     more_description = models.TextField(verbose_name="More description", blank=True, null=True)
     comments = models.CharField(max_length=255, verbose_name="Comments", blank=True, null=True)
     media_objects = models.TextField(verbose_name="Media Object", blank=True, null=True)

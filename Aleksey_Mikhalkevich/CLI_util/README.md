@@ -325,3 +325,11 @@ You can find more information [here](cool_project/data_storage/README.md).
 
 ## What's in the future
 In the future, I'm going to upload the utility to PYPI and add more formats for conversions.
+
+
+## Author
+[GitHub](https://github.com/Aleksey-Mikh)
+
+[linkedin](https://www.linkedin.com/in/aliaksei-mikhalkevich-b740b0201/)
+
+MAIl - lehado67@gmail.com

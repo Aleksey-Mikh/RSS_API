@@ -54,4 +54,4 @@ We can use http://127.0.0.1:8000/api or http://0.0.0.0:8000/api
          "to_html": false
       }
 
-![](gif/post.gif.mp4)
+![](gif/load_pdf.gif)

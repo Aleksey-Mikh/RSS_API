@@ -241,7 +241,7 @@ When you enter the `--json` argument, the console will output data in JSON forma
             "source_feed": list_source,
         },
     ]
-You can find more information [here](/cool_project/cervices/README.md).
+You can find more information [here](cool_project/cervices/README.md).
 
 ---
 [:arrow_up:Contents](#Contents)
@@ -251,11 +251,11 @@ The utility supports the conversion of news into the following formats: HTML, PD
 
 ### Converter to PDF
 When you enter the `--to-pdf path` argument, the `feed.pdf` file will be saved to the got path.
-You can find more information [here](/cool_project/conversion_to_format/README.md).
+You can find more information [here](cool_project/conversion_to_format/README.md).
 
 ### Converter to HTML
 When you enter the `--to-html path` argument, the `html.pdf` file will be saved to the got path.
-You can find more information [here](/cool_project/conversion_to_format/README.md).
+You can find more information [here](cool_project/conversion_to_format/README.md).
 
 ---
 [:arrow_up:Contents](#Contents)
@@ -273,7 +273,7 @@ The utility uses caching of news with the ability to output them without an Inte
                 2021-10-19_https___lenta_ru_rss.json
         2021-10/
             ...
-You can find more information [here](/cool_project/data_storage/README.md).
+You can find more information [here](cool_project/data_storage/README.md).
 
 ---
 [:arrow_up:Contents](#Contents)

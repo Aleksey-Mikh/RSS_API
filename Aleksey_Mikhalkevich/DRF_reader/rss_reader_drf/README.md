@@ -59,10 +59,12 @@ To receive news, you need to send a POST request to http://127.0.0.1:8000/api/ge
 Viewing all the news is available at http://127.0.0.1:8000/api/news /.
 
 There are 10 news items on one page
+
 ![](gif/check_news.gif)
 
 When you enter the `date` argument, the news is extracted from the DB. 
-Parsing of 'source` (if it is specified) does not happen.
+Parsing of `source` (if it is specified) does not happen.
+
 ![](gif/if_date.gif)
 
 ---

@@ -90,8 +90,8 @@ def test_console_output_feed(capsys):
     console_output_feed(DATA, False)
     captured = capsys.readouterr()
 
-    first_line_1 = calculate_terminal_size("News 3")
-    first_line_2 = calculate_terminal_size("News 4")
+    first_line_1 = calculate_terminal_size("News 1")
+    first_line_2 = calculate_terminal_size("News 2")
     last_line = calculate_terminal_size(None)
 
     output = f'\n\nFeed source: {DATA[0]["source"]}\n' \
@@ -125,7 +125,7 @@ def test_console_output_feed(capsys):
 
 
 @pytest.mark.parametrize("news, colorize",
-                         [("News 5", False)]
+                         [("News 3", False)]
                          )
 def test_output_feed(capsys, news, colorize):
     """test for output_feed function"""

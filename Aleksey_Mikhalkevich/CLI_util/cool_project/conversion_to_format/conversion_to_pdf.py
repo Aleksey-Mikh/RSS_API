@@ -2,7 +2,7 @@ from pathlib import Path
 
 from fpdf import FPDF
 
-from CLI_util.cool_project.cervices.print_functions import info_print, error_print
+from cool_project.cervices.print_functions import info_print, error_print
 from project_settings import FILE_NAME_PDF
 
 

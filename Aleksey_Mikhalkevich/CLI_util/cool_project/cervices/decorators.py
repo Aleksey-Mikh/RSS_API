@@ -2,7 +2,7 @@ from requests import exceptions
 import shutil
 from math import ceil
 
-from CLI_util.cool_project.cervices.print_functions import (
+from cool_project.cervices.print_functions import (
     info_print, warning_print, error_print
 )
 

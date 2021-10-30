@@ -1,11 +1,11 @@
-from CLI_util.cool_project.cervices.print_functions import info_print
-from CLI_util.cool_project.data_storage.storage_managers import (
+from cool_project.cervices.print_functions import info_print
+from cool_project.data_storage.storage_managers import (
     FindManagerWhenEnterDate,
     FindManagerWhenEnterDateAndSource,
     DataManagerInStorageAfterParsing
 )
-from CLI_util.cool_project.conversion_to_format.conversion_to_html import convert_to_html
-from CLI_util.cool_project.conversion_to_format.conversion_to_pdf import convertor_to_pdf
+from cool_project.conversion_to_format.conversion_to_html import convert_to_html
+from cool_project.conversion_to_format.conversion_to_pdf import convertor_to_pdf
 
 
 def interface_to_convert(data, to_html, to_pdf, verbose):

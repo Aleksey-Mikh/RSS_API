@@ -2,7 +2,7 @@ import json
 
 from colorama import init, Fore, Style, deinit
 
-from CLI_util.cool_project.cervices.decorators import decorator_delimiter
+from cool_project.cervices.decorators import decorator_delimiter
 
 
 def console_output_feed(news, colorize):

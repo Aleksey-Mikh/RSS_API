@@ -4,8 +4,8 @@ import re
 from pathlib import Path
 import datetime
 
-from CLI_util.cool_project.cervices.print_functions import error_print, info_print
-from CLI_util.cool_project.cervices.data_output import (
+from cool_project.cervices.print_functions import error_print, info_print
+from cool_project.cervices.data_output import (
     console_output_feed, console_json_output
 )
 from project_settings import LIST_OF_DATE_FORMATS

@@ -1,21 +1,23 @@
 import argparse
 import sys
+from pathlib import Path
 
 import requests
 
+sys.path.append(str(Path(__file__).parent.parent))
 
-from CLI_util.cool_project.cervices.data_output import (
+from cool_project.cervices.data_output import (
     console_output_feed, console_json_output
 )
-from CLI_util.cool_project.cervices.decorators import (
+from cool_project.cervices.decorators import (
     check_limit_type_value,
     intercept_errors,
     verbose_information_about_start_scrapping,
     decorator_delimiter,
 )
-from CLI_util.cool_project.cervices.print_functions import info_print, error_print
-from CLI_util.cool_project.serializers.serializers import serialization_data
-from CLI_util.cool_project.data_storage.working_with_storage import storage_control
+from cool_project.cervices.print_functions import info_print, error_print
+from cool_project.serializers.serializers import serialization_data
+from cool_project.data_storage.working_with_storage import storage_control
 from project_settings import PROGRAM_VERSION, HEADERS
 
 

@@ -2,7 +2,7 @@ from pathlib import Path
 
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 
-from CLI_util.cool_project.cervices.print_functions import error_print, info_print
+from cool_project.cervices.print_functions import error_print, info_print
 from project_settings import FILE_NAME_HTML
 
 

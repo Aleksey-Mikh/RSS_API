@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from CLI_util.cool_project.cervices.print_functions import (
+from cool_project.cervices.print_functions import (
     info_print, warning_print, error_print
 )
 

@@ -1,10 +1,10 @@
 Project description 
 ===
 Web-server that uses Docker + docker-compose. 
-Implementing all parts of the task using the REST API:
-* One-shot conversion from RSS to Human readable format
-* Server-side news caching
-* Conversion in epub, mobi, fb2 or other formats
+The following tasks have been implemented:
+* One-shot conversion from RSS to Human readable format.
+* Server-side news caching.
+* Conversion in html and fb2 formats.
 
 ---
 

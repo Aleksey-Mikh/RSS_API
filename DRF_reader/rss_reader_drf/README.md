@@ -22,11 +22,11 @@ The following tasks have been implemented:
 ## Installation
 To install, you need to make a clone of the repository:
 ```
->>> git clone https://github.com/Aleksey-Mikh/Homework.git -b master
+>>> git clone https://github.com/Aleksey-Mikh/RSS_API.git
 ```
 After that, you need to go to the CLI_util directory:
 ```
->>> cd your_path/CLI_util/
+>>> cd your_path/DRF_reader/rss_reader_drf/
 ```
 Then you need to build the docker container:
 ```

@@ -54,18 +54,18 @@ To receive news, you need to send a POST request to http://127.0.0.1:8000/api/ge
          "to_html": false
       }
 
-![](gif/post.gif)
+![](DRF_reader/rss_reader_drf/gif/post.gif)
 
 Viewing all the news is available at http://127.0.0.1:8000/api/news /.
 
 There are 10 news items on one page
 
-![](gif/check_news.gif)
+![](DRF_reader/rss_reader_drf/gif/check_news.gif)
 
 When you enter the `date` argument, the news is extracted from the DB. 
 Parsing of `source` (if it is specified) does not happen.
 
-![](gif/if_date.gif)
+![](DRF_reader/rss_reader_drf/gif/if_date.gif)
 
 ---
 
@@ -87,9 +87,9 @@ depending on the selected format.
 
 Downloading by POST request occurs in Postman, browsers sometimes do not want to work ¯\_(ツ)_/¯.
 ## Converter to PDF
-![](gif/download_pdf.gif)
+![](DRF_reader/rss_reader_drf/gif/download_pdf.gif)
 ## Converter to HTML
-![](gif/download_html.gif)
+![](DRF_reader/rss_reader_drf/gif/download_html.gif)
 
 ---
 

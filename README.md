@@ -24,7 +24,7 @@ To install, you need to make a clone of the repository:
 ```
 >>> git clone https://github.com/Aleksey-Mikh/RSS_API.git
 ```
-After that, you need to go to the CLI_util directory:
+After that, you need to go to the rss_reader_drf directory:
 ```
 >>> cd your_path/DRF_reader/rss_reader_drf/
 ```
